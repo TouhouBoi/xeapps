@@ -5,7 +5,7 @@
 //this script uses the X javascript kit, from http://cross-browser.com 
 numberSnow = 5;
 snowInterval = 5;
-snowPrefix = 'index.php?extern=apps/eyeSnow/';
+snowPrefix = 'index.php?extern=apps/xeSnow/';
 speed = 1;
 
 drawSnow();
