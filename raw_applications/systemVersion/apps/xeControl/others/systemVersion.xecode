@@ -20,6 +20,8 @@ Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
 
 */
 
+$php_version = phpversion();
+
 $myLabel = new Label(
 	array(
 		'name' => 'xeControl_systemversion_label_xenonversion',
