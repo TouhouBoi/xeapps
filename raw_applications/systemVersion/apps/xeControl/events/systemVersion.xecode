@@ -1,6 +1,6 @@
 <?php
 
-function xeControl_on_php_info($params = '')
+function xeControl_on_php_info($params = null)
 {
 	global $checknum;
 	
