@@ -73,4 +73,17 @@ $myLabel = new Label(
 );
 
 $myLabel->show();
+
+$myButton = new Button(
+	array(
+		'name' => 'xeControl_systemversion_button_phpinfo',
+		'father' => $eyeContainer,
+		'horiz' => -0,
+		'y' => 86,
+		'caption' => 'PHP Info',
+		'signal' => 'php_info'
+	)
+);
+
+$myButton->show();
 ?>
