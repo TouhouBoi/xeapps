@@ -22,23 +22,23 @@
 
 */
 
-function eyeSnow_run($params=null) {
+function xeSnow_run($params=null) {
 	$processTable = service('proc','getProcessTable');
 	$count = 0;
 	foreach($processTable as $process){
-		if($process['appName'] == 'eyeSnow'){
+		if($process['appName'] == 'xeSnow'){
 			if($count > 0) {
-				service('eyex','messageBox',array("content"=>"eyeSnow is already runing"));
+				service('eyex','messageBox',array("content"=>"xeSnow is already runing"));
 				proc('end');
 				return;
 			}
 			$count++;
 		}
 	}
-	service('eyex','loadScript',array('url' => 'index.php?extern=apps/eyeSnow/eyeSnow.js'));
+	service('eyex','loadScript',array('url' => 'index.php?extern=apps/xeSnow/xeSnow.js'));
 }
 
-function eyeSnow_end($params=null) {
+function xeSnow_end($params=null) {
 	reqLib('eyeWidgets','unserialize');
 }
 
