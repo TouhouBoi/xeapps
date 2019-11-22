@@ -60,4 +60,17 @@ $myLabel = new Label(
 );
 
 $myLabel->show();
+
+$myLabel = new Label(
+	array(
+		'name' => 'xeControl_systemversion_label_phpversion',
+		'father' => $eyeContainer,
+		'horiz' => -0,
+		'y' => 56,
+		'text' => 'Running PHP Version: '.$php_version,
+		'tokens' => array($it)
+	)
+);
+
+$myLabel->show();
 ?>
