@@ -1,36 +1,74 @@
 <?php
 
-function eyeUserList_run($params=null) {
-	$sortypes = array("number","String","String");
-	$myWindow = new Window(array('name'=>'wnd1','title'=>'eyeUserList','father'=>'eyeApps',
-		'type'=>NORESIZE_WINDOW,'width'=>200,'height'=>450,'x'=>1070,'y'=>350));
+function xeUserList_run($params = null)
+{
+	$sortypes = array("number", "String", "String");
+	
+	$myWindow = new Window(
+		array(
+			'name' => 'wnd1',
+			'title' => 'eyeUserList',
+			'father' => 'eyeApps',
+			'type' => NORESIZE_WINDOW,
+			'width' => 200,
+			'height' => 450,
+			'x' => 1070,
+			'y' => 350
+		)
+	);
+	
 	$myWindow->show();
+	
 	$myHeader = array('User');
 
-	$myContainer = new Container(array('father'=>'wnd1_Content','name'=>'tableContainer',
-		'width' =>183,'height'=>380,'x'=>9,'y'=>6));
+	$myContainer = new Container(
+		array(
+			'father' => 'wnd1_Content',
+			'name' => 'tableContainer',
+			'width' => 183,
+			'height' => 380,
+			'x' => 9,
+			'y' => 6
+		)
+	);
+	
 	$myContainer->show();
 	
-	$myTable = new Sortabletable(array('name'=>'table_1','father'=>'tableContainer',
-		'sortypes'=>$sortypes,'theader'=>$myHeader,'x'=>0,'y'=>0,'width'=>180,'height'=>370));
+	$myTable = new Sortabletable(
+		array(
+			'name' => 'table_1',
+			'father' => 'tableContainer',
+			'sortypes' => $sortypes,
+			'theader' => $myHeader,
+			'x' => 0,
+			'y' => 0,
+			'width' => 180,
+			'height' => 370
+		)
+	);
 	
 	$myTable->show();
-$allUsers = um('getAllUsers');
-foreach ($allUsers as $user) {
-	$userXML = um('retrieveUser',array($user));
-	$userXML = $userXML['eyeUser'][0];
 	
-			$myTable->addRow(array(
-		$user,
-		$fullname,
-		$email
-			));
+	$allUsers = um('getAllUsers');
+	
+	foreach ($allUsers as $user)
+	{
+		$userXML = um('retrieveUser', array($user));
+		$userXML = $userXML['eyeUser'][0];
+	
+		$myTable->addRow(
+			array(
+				$user,
+				$fullname,
+				$email
+			)
+		);
 	}
 
 }
 
-function eyeUserList_end($params=null) {
-	reqLib('eyeWidgets','unserialize');
+function xeUserList_end($params = null)
+{
+	reqLib('eyeWidgets', 'unserialize');
 }
-
 ?>
