@@ -1,0 +1,10 @@
+<package>
+	<name>Archive.org Browser</name>
+	<category>Utilities</category>
+	<version>1.0</version>
+	<description>Browse Archive.org</description>
+	<author>Trinity</author>
+	<license>AGPL</license>
+	<type>Application</type>
+	<icon>index.php?extern=apps/archiveOrgBrowser/icon/archive_org.png</icon>
+</package>
