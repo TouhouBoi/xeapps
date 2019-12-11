@@ -96,9 +96,9 @@ function xeXMLviewer_run($params = null)
 
 function drawTree($myTree, $tree, $content)
 {
-	for($i=0;$i<count($content);$i++)
+	for ($i=0;$i<count($content);$i++)
 	{
-		foreach($content[$i] as $key => $value)
+		foreach ($content[$i] as $key => $value)
 		{
 			$id = uniqid(time());
 			
