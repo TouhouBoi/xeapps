@@ -13,7 +13,7 @@ function xeXMLviewer_on_Message($params=null) {
 	eyeWidgets('updateContent',$params);
 }
 
-function eyeXMLviewer_on_Open($params=null) {
+function xeXMLviewer_on_Open($params=null) {
 	global $checknum;
 	$options = array(
 		0,
