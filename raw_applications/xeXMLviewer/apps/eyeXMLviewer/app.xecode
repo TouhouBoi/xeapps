@@ -117,7 +117,7 @@ function drawTree($myTree, $tree, $content)
 	}
 }
 
-function eyeXMLviewer_end($params = null)
+function xeXMLviewer_end($params = null)
 {
 	eyeWidgets('unserialize');
 }
