@@ -23,7 +23,7 @@ function xeXMLviewer_on_Open($params=null) {
 	service('proc','launch',array('eyeDialog',$options));
 }
 
-function eyeXMLviewer_on_SelectFileOpen($params=null) {
+function xeXMLviewer_on_SelectFileOpen($params=null) {
 	$file = $params['arg'][0];
 	if($file) {
 		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
