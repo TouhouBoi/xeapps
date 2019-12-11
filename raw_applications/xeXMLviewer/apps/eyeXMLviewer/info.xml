@@ -1,0 +1,10 @@
+<package>
+	<name>eyeXMLviewer</name>
+	<category>Development</category>
+	<version>0.1</version>
+	<description>xml viewer</description>
+	<author>Jose Carlos Norte</author>
+	<license>GPL</license>
+	<type>Application</type>
+	<icon>index.php?extern=apps/eyeX/themes/default/icons/48x48/file.png</icon>
+</package>
