@@ -79,7 +79,7 @@ function drawTree($myTree,$tree,$content) {
 	}
 }
 
-function eyeXMLviewer_on_Close($params=null) {
+function xeXMLviewer_on_Close($params=null) {
 	proc('end');
 }
 
