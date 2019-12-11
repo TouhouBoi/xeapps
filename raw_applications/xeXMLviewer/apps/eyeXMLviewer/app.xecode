@@ -9,7 +9,7 @@
  * 
  */
 
-function eyeXMLviewer_run($params = null)
+function xeXMLviewer_run($params = null)
 {
 	$myWindow = new Window(
 		array(
