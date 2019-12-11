@@ -9,78 +9,125 @@
  * 
  */
 
-function xeXMLviewer_on_Message($params=null) {
-	eyeWidgets('updateContent',$params);
+function xeXMLviewer_on_Message($params = null)
+{
+	eyeWidgets('updateContent', $params);
 }
 
-function xeXMLviewer_on_Open($params=null) {
+function xeXMLviewer_on_Open($params = null)
+{
 	global $checknum;
+	
 	$options = array(
 		0,
 		'SelectFileOpen',
 		$checknum,
 	);
-	service('proc','launch',array('eyeDialog',$options));
+	
+	service('proc', 'launch', array('eyeDialog', $options));
 }
 
-function xeXMLviewer_on_SelectFileOpen($params=null) {
+function xeXMLviewer_on_SelectFileOpen($params = null)
+{
 	$file = $params['arg'][0];
-	if($file) {
-		$file = service('um','getCurrentUserDir').FILES_USER_DIR.'/'.$file;
-		$fp = service('vfs','open',array($file,'r'));
-		if(!$fp) {
-			service('eyex','messageBox',array('content'=>'Sorry, you do not have sufficient permissions.'));
+	
+	if ($file)
+	{
+		$file = service('um', 'getCurrentUserDir').FILES_USER_DIR.'/'.$file;
+		
+		$fp = service('vfs', 'open', array($file, 'r'));
+		
+		if (!$fp)
+		{
+			service('eyex', 'messageBox', array('content'=>'Sorry, You do not have sufficient permissions.'));
+			
 			return;
 		}
+		
 		$GLOBALS['WND1']->clear();
-		$myToolbar = new Toolbar(array('name'=>'myBar','father'=>'WND1_Content'));
+		
+		$myToolbar = new Toolbar(
+			array(
+				'name' => 'myBar',
+				'father' => 'WND1_Content'
+			)
+		);
+		
 		$myToolbar->show();
-		$myToolbar->addItem('open','index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png','Open');
-		$myTree = new Tree(array(
-			'name'=>'xmlTree',
-			'father'=>'WND1_Content',
-			'width'=>580,
-			'height'=>410,
-			'x'=>5,
-			'y'=>60,
-		));
-		$size = service('vfs','filesize',array($file));
-		$content = fread($fp,$size);
+		
+		$myToolbar->addItem('open', 'index.php?extern=apps/eyeX/themes/default/images/toolbar/fileopen.png', 'Open');
+		
+		$myTree = new Tree(
+			array(
+				'name' => 'xmlTree',
+				'father' => 'WND1_Content',
+				'width' => 580,
+				'height' => 410,
+				'x' => 5,
+				'y' => 60,
+			)
+		);
+		
+		$size = service('vfs', 'filesize', array($file));
+		
+		$content = fread($fp, $size);
+		
 		fclose($fp);
-		$xml = eyeXML('xml2array',array($content));
+		
+		$xml = eyeXML('xml2array', array($content));
+		
 		$myTree->show(1);
+		
 		$counter = 0;
-		foreach($xml as $key=>$value) {
-			$myTree->addItem('xmlTree','home_item_'.$counter,$key);
-			$myTree->addSubList('home_item_'.$counter,'home_list_'.$counter);
-			if(is_array($value[0])) {
-				drawTree($myTree,'home_list_'.$counter,$value);
-			} else {
-				$myTree->addItem('home_list_'.$counter,'text_item_'.$counter,$value[0]);
+		
+		foreach ($xml as $key => $value)
+		{
+			$myTree->addItem('xmlTree', 'home_item_'.$counter, $key);
+			
+			$myTree->addSubList('home_item_'.$counter, 'home_list_'.$counter);
+			
+			if (is_array($value[0]))
+			{
+				drawTree($myTree, 'home_list_'.$counter, $value);
 			}
+			else
+			{
+				$myTree->addItem('home_list_'.$counter, 'text_item_'.$counter, $value[0]);
+			}
+			
 			$counter++;
 		}
+		
 		$myTree->processList();
 	}
 }
 
-function drawTree($myTree,$tree,$content) {
-	for($i=0;$i<count($content);$i++) {
-		foreach($content[$i] as $key=>$value) {
+function drawTree($myTree, $tree, $content)
+{
+	for ($i=0;$i<count($content);$i++)
+	{
+		foreach ($content[$i] as $key => $value)
+		{
 			$id = uniqid(time());
-			$myTree->addItem($tree,'xml_node_'.$id,$key);
-			$myTree->addSubList('xml_node_'.$id,'xml_list_'.$id);
-			if(is_array($value[0])) {
-				drawTree($myTree,'xml_list_'.$id,$value);
-			} else {
-				$myTree->addItem('xml_list_'.$id,'text_item_'.$id,$value[0]);
+			
+			$myTree->addItem($tree, 'xml_node_'.$id, $key);
+			
+			$myTree->addSubList('xml_node_'.$id, 'xml_list_'.$id);
+			
+			if (is_array($value[0]))
+			{
+				drawTree($myTree, 'xml_list_'.$id, $value);
+			}
+			else
+			{
+				$myTree->addItem('xml_list_'.$id, 'text_item_'.$id, $value[0]);
 			}
 		}
 	}
 }
 
-function xeXMLviewer_on_Close($params=null) {
+function xeXMLviewer_on_Close($params = null)
+{
 	proc('end');
 }
-
 ?>
