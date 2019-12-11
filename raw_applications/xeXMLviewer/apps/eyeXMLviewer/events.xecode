@@ -9,7 +9,7 @@
  * 
  */
 
-function eyeXMLviewer_on_Message($params=null) {
+function xeXMLviewer_on_Message($params=null) {
 	eyeWidgets('updateContent',$params);
 }
 
