@@ -1,13 +1,24 @@
 <?php
 /*
- * 
- * eyeXMLviewer a free xml viewer for eyeOS
- * 2008 (c) Jose Carlos Norte - jose@eyeos.org 
- * 
- * Licensed under the terms of the GNU General Public License 3 (GPL3)
- * available at gnu.org/licenses/gpl.txt
- * 
- */
+##     ## ######## ##    ##  #######  ##    ##  #######   ######
+ ##   ##  ##       ###   ## ##     ## ###   ## ##     ## ##    ##
+  ## ##   ##       ####  ## ##     ## ####  ## ##     ## ##
+   ###    ######   ## ## ## ##     ## ## ## ## ##     ##  ######
+  ## ##   ##       ##  #### ##     ## ##  #### ##     ##       ##
+ ##   ##  ##       ##   ### ##     ## ##   ### ##     ## ##    ##
+##     ## ######## ##    ##  #######  ##    ##  #######   ######
+
+
+XenonOS is a fork of the oneye project.
+XenonOS Copyright © 2019 Trinity (touhouboi@protonmail.com)
+
+Original Copyright
+------------------------------------------
+https://oneye-project.org
+Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
+             since 2010 Lars Knickrehm (mail@lars-sh.de)
+
+*/
 
 function xeXMLviewer_on_Message($params = null)
 {
