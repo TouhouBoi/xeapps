@@ -14,7 +14,7 @@ function xeXMLviewer_run($params = null)
 	$myWindow = new Window(
 		array(
 			'name' => 'WND1',
-			'father' => 'eyeApps',
+			'father' => 'xenonApps',
 			'cent' => 1,
 			'width' => 600,
 			'height' => 500,
@@ -55,7 +55,7 @@ function xeXMLviewer_run($params = null)
 		
 		if (!$fp)
 		{
-			service('eyex', 'messageBox', array('content' => 'File not found'));
+			service('xenonx', 'messageBox', array('content' => 'File not found'));
 			
 			return;
 		}
@@ -120,6 +120,6 @@ function drawTree($myTree, $tree, $content)
 
 function xeXMLviewer_end($params = null)
 {
-	eyeWidgets('unserialize');
+	xenonWidgets('unserialize');
 }
 ?>
