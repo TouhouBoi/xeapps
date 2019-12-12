@@ -73,7 +73,7 @@ function xeTetravex_run($params=null) {
 }
 
 function xeTetravex_end($params=null) {
-	eyeWidgets('unserialize');
+	xenonWidgets('unserialize');
 }
 
 ?>
