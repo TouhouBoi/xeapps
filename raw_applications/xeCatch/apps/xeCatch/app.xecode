@@ -38,7 +38,7 @@ function xeCatch_run($params = '') {
 	));
 	$GLOBALS['xeCatch_Label']->show();
 	$GLOBALS['xeCatch_Label']->setCss(array('display' => 'block','height' => '30px','width' => ($GLOBALS['xeCatch_Window']->width - 42) . 'px'));
-	eyeWidgets('serialize',array($GLOBALS['xeCatch_Label']));
+	xenonWidgets('serialize',array($GLOBALS['xeCatch_Label']));
 
 	$GLOBALS['xeCatch_Container'] = new Container(array(
 		'father' => 'xeCatch_Window_Content',
@@ -50,7 +50,7 @@ function xeCatch_run($params = '') {
 	));
 	$GLOBALS['xeCatch_Container']->show();
 	$GLOBALS['xeCatch_Container']->setCss(array('display' => 'block','overflow' => 'auto','position' => 'absolute'));
-	eyeWidgets('serialize',array($GLOBALS['xeCatch_Container']));
+	xenonWidgets('serialize',array($GLOBALS['xeCatch_Container']));
 
 	include_once(XENONOS_ROOT . '/' . APP_DIR . '/xeCatch/events' . XE_CODE_EXTENSION);
 	xeCatch_on_ChooseMap(array('run' => 1));
@@ -62,6 +62,6 @@ function xeCatch_run($params = '') {
 
 function xeCatch_end($params = '') {
 	removeListenerServiceCall('xenonx','resizedbrowser');
-	eyeWidgets('unserialize',$params);
+	xenonWidgets('unserialize',$params);
 }
 ?>
