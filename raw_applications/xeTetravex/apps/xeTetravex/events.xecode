@@ -384,7 +384,7 @@ function xeTetravex_setXmlFileContent($file, $xml) {
  }*/
 
 function xeTetravex_on_Message($params="") {
-	eyeWidgets('updateContent',$params);
+	xenonWidgets('updateContent',$params);
 }
 
 function xeTetravex_on_Close(){
