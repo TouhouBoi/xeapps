@@ -1,0 +1,10 @@
+<package>
+	<name>Tetravex Game</name>
+	<category>Games</category>
+	<version>1.0</version>
+	<description>A Tetravex game for XenonOS.</description>
+	<author>Trinity</author>
+	<license>AGPL</license>
+	<type>Application</type>
+	<icon>index.php?theme=USERTHEME&amp;extern=icons/48x48/eyeTetravex.png</icon>
+</package>
