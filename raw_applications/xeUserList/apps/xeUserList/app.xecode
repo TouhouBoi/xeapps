@@ -7,8 +7,8 @@ function xeUserList_run($params = null)
 	$myWindow = new Window(
 		array(
 			'name' => 'wnd1',
-			'title' => 'eyeUserList',
-			'father' => 'eyeApps',
+			'title' => 'xeUserList',
+			'father' => 'xenonApps',
 			'type' => NORESIZE_WINDOW,
 			'width' => 200,
 			'height' => 450,
