@@ -15,7 +15,7 @@ Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
 */
 
 function xeCatch_com_fullResized($params = '') {
-	eyeWidgets('updateContent',$params);
+	xenonWidgets('updateContent',$params);
 	if ($GLOBALS['xeCatch_Window']->fullScreen) {
 		$GLOBALS['xeCatch_Window']->listenerResizeFullScreen($params);
 	}
