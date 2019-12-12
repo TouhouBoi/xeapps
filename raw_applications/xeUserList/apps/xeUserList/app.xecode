@@ -69,6 +69,6 @@ function xeUserList_run($params = null)
 
 function xeUserList_end($params = null)
 {
-	reqLib('eyeWidgets', 'unserialize');
+	reqLib('xenonWidgets', 'unserialize');
 }
 ?>
