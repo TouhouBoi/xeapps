@@ -20,54 +20,84 @@ Copyright © 2005 - 2010 eyeos Team (team@eyeos.org)
 
 */
 
-function xeCatch_run($params = '') {
-
-	$GLOBALS['xeCatch_Window'] = new Window(array(
-		'cent' => 1,
-		'father' => 'xenonApps',
-		'height' => 600,
-		'name' => 'xeCatch_Window',
-		'savePosition' => 1,
-		'sendResizeMsg' => 1,
-		'sigResize' => 'Resize',
-		'title' => 'xeCatch',
-		'width' => 800
-	));
+function xeCatch_run($params = '')
+{
+	$GLOBALS['xeCatch_Window'] = new Window(
+		array(
+			'cent' => 1,
+			'father' => 'xenonApps',
+			'height' => 600,
+			'name' => 'xeCatch_Window',
+			'savePosition' => 1,
+			'sendResizeMsg' => 1,
+			'sigResize' => 'Resize',
+			'title' => 'xeCatch',
+			'width' => 800
+		)
+	);
+	
 	$GLOBALS['xeCatch_Window']->show();
 
-	$GLOBALS['xeCatch_Label'] = new Label(array(
-		'father' => 'xeCatch_Window_Content',
-		'name' => 'xeCatch_Label',
-		'text' => 'Please choose a map and click "Play Map". You need to move the player by dragging it. You should try to not fall into holes, while enemies try to catch you. Try to survive as long as possible!',
-		'x' => 20,
-		'y' => 69
-	));
+	$GLOBALS['xeCatch_Label'] = new Label(
+		array(
+			'father' => 'xeCatch_Window_Content',
+			'name' => 'xeCatch_Label',
+			'text' => 'Please choose a map and click "Play Map". You need to move the player by dragging it. You should try to not fall into holes, while enemies try to catch you. Try to survive as long as possible!',
+			'x' => 20,
+			'y' => 69
+		)
+	);
+	
 	$GLOBALS['xeCatch_Label']->show();
-	$GLOBALS['xeCatch_Label']->setCss(array('display' => 'block','height' => '30px','width' => ($GLOBALS['xeCatch_Window']->width - 42) . 'px'));
-	xenonWidgets('serialize',array($GLOBALS['xeCatch_Label']));
+	
+	$GLOBALS['xeCatch_Label']->setCss(
+		array(
+			'display' => 'block',
+			'height' => '30px',
+			'width' => ($GLOBALS['xeCatch_Window']->width - 42).'px'
+		)
+	);
+	
+	xenonWidgets('serialize', array($GLOBALS['xeCatch_Label']));
 
-	$GLOBALS['xeCatch_Container'] = new Container(array(
-		'father' => 'xeCatch_Window_Content',
-		'height' => $GLOBALS['xeCatch_Window']->height - 133,
-		'name' => 'xeCatch_Container',
-		'width' => $GLOBALS['xeCatch_Window']->width - 2,
-		'x' => 0,
-		'y' => 109
-	));
+	$GLOBALS['xeCatch_Container'] = new Container(
+		array(
+			'father' => 'xeCatch_Window_Content',
+			'height' => $GLOBALS['xeCatch_Window']->height - 133,
+			'name' => 'xeCatch_Container',
+			'width' => $GLOBALS['xeCatch_Window']->width - 2,
+			'x' => 0,
+			'y' => 109
+		)
+	);
+	
 	$GLOBALS['xeCatch_Container']->show();
-	$GLOBALS['xeCatch_Container']->setCss(array('display' => 'block','overflow' => 'auto','position' => 'absolute'));
-	xenonWidgets('serialize',array($GLOBALS['xeCatch_Container']));
+	
+	$GLOBALS['xeCatch_Container']->setCss(
+		array(
+			'display' => 'block',
+			'overflow' => 'auto',
+			'position' => 'absolute'
+		)
+	);
+	
+	xenonWidgets('serialize', array($GLOBALS['xeCatch_Container']));
 
-	include_once(XENONOS_ROOT . '/' . APP_DIR . '/xeCatch/events' . XE_CODE_EXTENSION);
+	include_once(XENONOS_ROOT.'/'.APP_DIR.'/xeCatch/events'.XE_CODE_EXTENSION);
+	
 	xeCatch_on_ChooseMap(array('run' => 1));
 
-	xenonx('rawjs',array('js' => 'if (typeof xeCatch == "undefined") { dhtmlLoadScript("index.php?extern=apps/xeCatch/xeCatch.js"); }'));
-	xenonx('rawjs',array('js' => 'if (!document.getElementById("xeCatch_default")) { dhtmlLoadCSS("index.php?theme=' . $_SESSION['usertheme'] . '&extern=css/apps/xeCatch/default.css","xeCatch_default"); }'));
-	addListenerServiceCall('fullResized','xenonx','resizedbrowser');
+	xenonx('rawjs', array('js' => 'if (typeof xeCatch == "undefined") { dhtmlLoadScript("index.php?extern=apps/xeCatch/xeCatch.js"); }'));
+	
+	xenonx('rawjs', array('js' => 'if (!document.getElementById("xeCatch_default")) { dhtmlLoadCSS("index.php?theme='.$_SESSION['usertheme'].'&extern=css/apps/xeCatch/default.css","xeCatch_default"); }'));
+	
+	addListenerServiceCall('fullResized', 'xenonx', 'resizedbrowser');
 }
 
-function xeCatch_end($params = '') {
-	removeListenerServiceCall('xenonx','resizedbrowser');
-	xenonWidgets('unserialize',$params);
+function xeCatch_end($params = '')
+{
+	removeListenerServiceCall('xenonx', 'resizedbrowser');
+	
+	xenonWidgets('unserialize', $params);
 }
 ?>
