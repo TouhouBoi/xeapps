@@ -40,7 +40,7 @@ function xeCatch_on_ChooseMap($params = '') {
 		'y' => 0
 	));
 	$mySortabletable->show();
-	eyeWidgets('serialize',array($mySortabletable));
+	xenonWidgets('serialize',array($mySortabletable));
 	$oldUser = $currentUser;
 	$currentUser = ROOTUSER;
 	$files = vfs('real_getDirContent',array(XENONOS_ROOT . '/' . APP_DIR . '/' . APP_CONF_SHARE . '/xeCatch/maps/'));
@@ -60,7 +60,7 @@ function xeCatch_on_ChooseMap($params = '') {
 		'name' => 'xeCatch_Toolbar'
 	));
 	$myToolbar->show();
-	eyeWidgets('serialize',array($myToolbar));
+	xenonWidgets('serialize',array($myToolbar));
 	$myToolbar->addItem('PlayMap','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/next.png','Play Map',array($mySortabletable));
 	$myToolbar->addLine();
 	$myToolbar->addItem('Fullscreen','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/fullScreen.png','Full Screen','',1);
@@ -110,7 +110,7 @@ function xeCatch_on_PlayMap($params = '') {
 			'name' => 'xeCatch_Toolbar'
 		));
 		$myToolbar->show();
-		eyeWidgets('serialize',array($myToolbar));
+		xenonWidgets('serialize',array($myToolbar));
 		$myToolbar->addItem('ChooseMap','index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/details.png','Choose Map');
 		xenonx('runjs',array('js' => 'addItemToBar("' . $myPid . '_xeCatch_Toolbar","PlayMap","index.php?theme=' . $_SESSION['usertheme'] . '&extern=icons/22x22/refresh.png",%s,"' . base64_encode('eyeParam("xeCatch_Sortabletable","' . $map . '")') . '",' . $checknum . ',22,22,0,' . $myPid . ');','tokens' => array(i18n('translate',array('Restart Game')))));
 		$myToolbar->addLine();
@@ -139,7 +139,7 @@ function xeCatch_on_Fullscreen($params = '') {
 }
 
 function xeCatch_on_Message($params = '') {
-	eyeWidgets('updateContent',$params);
+	xenonWidgets('updateContent',$params);
 }
 
 function xeCatch_on_Resize($params = '') {
