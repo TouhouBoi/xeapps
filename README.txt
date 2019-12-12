@@ -6,7 +6,7 @@
  ##   ##  ##       ##   ### ##     ## ##   ### ##     ## ##    ##
 ##     ## ######## ##    ##  #######  ##    ##  #######   ######
 
-Xenon OS Extra Applications
+XenonOS Extra Applications
 
 XenonOS is a fork of the oneye project.
 XenonOS Copyright © 2019 Trinity (touhouboi@protonmail.com)
