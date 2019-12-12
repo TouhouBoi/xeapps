@@ -50,7 +50,7 @@ function xeXMLviewer_on_SelectFileOpen($params = null)
 		
 		if (!$fp)
 		{
-			service('eyex', 'messageBox', array('content'=>'Sorry, You do not have sufficient permissions.'));
+			service('xenonx', 'messageBox', array('content'=>'Sorry, You do not have sufficient permissions.'));
 			
 			return;
 		}
